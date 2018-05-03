@@ -25,7 +25,21 @@ export class WindowManagerC {
     getWidth(): number {
         return this.w_width;
     }
+
+    getWindowMode(): WindowMode {
+        return this.w_windowMode;
+    }
+
+    //Each member (properties and functions) are public by default, unless
+    //a 'private' or 'protected' keyword is used
+    public render(): void {
+        this._render();
+    }
+
+    private _render(): void {
+        console.log("Rendering window");
+    }
 }
 
 //enum not allowed inside a class
-enum WindowMode {WINDOW_ACTIVE, WINDOW_INACTIVE, WINDOW_MIN, WINDOW_MAX};
+export enum WindowMode {WINDOW_ACTIVE, WINDOW_INACTIVE, WINDOW_MIN, WINDOW_MAX};

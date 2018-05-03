@@ -20,6 +20,17 @@ var WindowManagerC = /** @class */ (function () {
     WindowManagerC.prototype.getWidth = function () {
         return this.w_width;
     };
+    WindowManagerC.prototype.getWindowMode = function () {
+        return this.w_windowMode;
+    };
+    //Each member (properties and functions) are public by default, unless
+    //a 'private' or 'protected' keyword is used
+    WindowManagerC.prototype.render = function () {
+        this._render();
+    };
+    WindowManagerC.prototype._render = function () {
+        console.log("Rendering window");
+    };
     return WindowManagerC;
 }());
 exports.WindowManagerC = WindowManagerC;
@@ -30,5 +41,5 @@ var WindowMode;
     WindowMode[WindowMode["WINDOW_INACTIVE"] = 1] = "WINDOW_INACTIVE";
     WindowMode[WindowMode["WINDOW_MIN"] = 2] = "WINDOW_MIN";
     WindowMode[WindowMode["WINDOW_MAX"] = 3] = "WINDOW_MAX";
-})(WindowMode || (WindowMode = {}));
+})(WindowMode = exports.WindowMode || (exports.WindowMode = {}));
 ;

@@ -1,5 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var window_1 = require("./window");
+var dialog_1 = require("./dialog");
 var wMgr = new window_1.WindowManagerC();
 console.log(wMgr.getWidth());
+var wd = new dialog_1.DialogC(window_1.WindowMode.WINDOW_INACTIVE);
+wd.render();
+wMgr.render();
+var wd1 = new dialog_1.DialogC(window_1.WindowMode.WINDOW_ACTIVE);
+console.log(wd.getWindowMode());
+console.log(wd1.getWindowMode());
