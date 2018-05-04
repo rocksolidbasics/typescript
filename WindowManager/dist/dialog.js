@@ -15,7 +15,7 @@ var DialogC = /** @class */ (function (_super) {
     __extends(DialogC, _super);
     //Multiple constructor implemenations are not allowed
     function DialogC(mode) {
-        var _this = _super.call(this) || this;
+        var _this = _super.call(this, 0x01) || this;
         _this.w_windowMode = mode;
         return _this;
     }

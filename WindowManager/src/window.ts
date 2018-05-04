@@ -18,6 +18,10 @@ export class WindowManagerC {
     //Usage of Any type
     w_DummyCache: any[] = [1, true, "free"];
 
+    //Parameter property and readonly/ immutable variable definition
+    constructor(readonly wId: number) {
+    }
+
     setWidth(w: number): void {
         this.w_width = w;
     }
@@ -38,6 +42,17 @@ export class WindowManagerC {
 
     private _render(): void {
         console.log("Rendering window");
+    }
+
+    set setHidden(flag: boolean) {
+        if(this.w_windowMode != WindowMode.WINDOW_ACTIVE)
+            return;
+
+        this.w_isHidden = flag;
+    }
+
+    get isHidden() {
+        return this.w_isHidden;
     }
 }
 

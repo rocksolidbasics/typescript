@@ -2,7 +2,9 @@
 //Using 'export' is optional - it makes it accessible from other modules
 Object.defineProperty(exports, "__esModule", { value: true });
 var WindowManagerC = /** @class */ (function () {
-    function WindowManagerC() {
+    //Parameter property and readonly/ immutable variable definition
+    function WindowManagerC(wId) {
+        this.wId = wId;
         this.w_isHidden = false;
         this.w_width = 100;
         this.w_height = 200;
@@ -31,6 +33,22 @@ var WindowManagerC = /** @class */ (function () {
     WindowManagerC.prototype._render = function () {
         console.log("Rendering window");
     };
+    Object.defineProperty(WindowManagerC.prototype, "setHidden", {
+        set: function (flag) {
+            if (this.w_windowMode != WindowMode.WINDOW_ACTIVE)
+                return;
+            this.w_isHidden = flag;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(WindowManagerC.prototype, "isHidden", {
+        get: function () {
+            return this.w_isHidden;
+        },
+        enumerable: true,
+        configurable: true
+    });
     return WindowManagerC;
 }());
 exports.WindowManagerC = WindowManagerC;
